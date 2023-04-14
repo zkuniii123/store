@@ -1,0 +1,1 @@
+"D:\softwore\微信web开发者工具\cli.bat" cloud functions deploy --e dev-5gibiivmd5b70186 --n quickstartFunctions --r --project "D:\softwore\微信web开发者工具\workspace\store" --report_first --report
