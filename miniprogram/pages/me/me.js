@@ -10,7 +10,7 @@ Page({
     openid: '',
     adiminArr: [
       '',
-      'oA9Ke4tObqwxqNSfALdVZPkVv7Yc',
+      'oE22B61apDkX4DQ_jLSI7v83VPlU',
       'oA9Ke4rH2nnqFgFbWIhyQu5bCXPA'
     ]
   },
@@ -54,8 +54,8 @@ Page({
       name: 'add',
       complete: res => {
         console.log(res)
-        console.log('云函数获取到的openid: ', res.result.openId)
-        var openid = res.result.openId;
+        console.log('云函数获取到的openid: ', res.result.openid)
+        var openid = res.result.openid;
         var isAdmin = null;
         that.setData({
           openid: openid,

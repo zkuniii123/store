@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    fruitDetail: {}, //水果信息
+    fruitDetail: {}, //商品信息
     popUpHidden: true, //是否隐藏弹窗
     popCartCount: 1, //购物车数量
     curIndex: 0,

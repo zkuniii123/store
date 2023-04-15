@@ -1,4 +1,3 @@
-// 云函数入口文件
 const cloud = require('wx-server-sdk')
 const request = require('request')
 
@@ -13,9 +12,9 @@ exports.main = async (event, context) => {
 const getIPAddressPromise = function () {
   return new Promise((resolve, reject) => {
     let options = {
-      "url": 'http://ip-api.com/json'
+      "url": 'https://api4.ipify.org'
     };
-    request.post(options, (err, result, body) => {
+    request.get(options, (err, result, body) => {
       resolve({
         err: err,
         body: body

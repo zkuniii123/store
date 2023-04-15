@@ -8,16 +8,18 @@ Page({
     swiperImgNo: 1,
     imgSwiperUrl: '',
     fruitInfo: [],
-    typeCat: [
-      { id: 0, name: "美味鲜果" },
-      { id: 1, name: "今日特惠" },
-      { id: 2, name: "新鲜上架" },
-      { id: 3, name: "店主推荐" },
+    typeCat: [{
+        id: 0,
+        name: "全部商品"
+      },
+      // { id: 1, name: "今日特惠" },
+      // { id: 2, name: "新鲜上架" },
+      // { id: 3, name: "店主推荐" },
     ],
     activeTypeId: 0,
-    isShow:true, 
-    openid: '',   
-    offLine:null  //是否维护
+    isShow: true,
+    openid: '',
+    offLine: null //是否维护
   },
 
   // 获取用户openid
@@ -36,11 +38,13 @@ Page({
   },
 
   // ------------加入购物车------------
-  addCartByHome: function(e) {
+  addCartByHome: function (e) {
     // console.log(e.currentTarget.dataset._id)
     var self = this
     let newItem = {}
-    app.getInfoWhere('fruit-board', { _id: e.currentTarget.dataset._id },
+    app.getInfoWhere('fruit-board', {
+        _id: e.currentTarget.dataset._id
+      },
       e => {
         // console.log(e.data["0"])
         var newCartItem = e.data["0"]
@@ -55,7 +59,7 @@ Page({
 
 
   // ------------分类展示切换---------
-  typeSwitch: function(e) {
+  typeSwitch: function (e) {
     // console.log(e.currentTarget.id)
     getCurrentPages()["0"].setData({
       activeTypeId: parseInt(e.currentTarget.id)
@@ -71,42 +75,42 @@ Page({
           }
         )
         break;
-      // 今日特惠
-      case '1':
-        app.getInfoWhere('fruit-board', {myClass:'1'},
-          e => {
-            getCurrentPages()["0"].setData({
-              fruitInfo: e.data
-            })
-          }
-        )
-        break;
-      // 销量排行
-      case '2':
-        app.getInfoByOrder('fruit-board','time','desc',
-          e => {
-            getCurrentPages()["0"].setData({
-              fruitInfo: e.data
-            })
-          }
-        )
-        break;
-      // 店主推荐
-      case '3':
-        app.getInfoWhere('fruit-board', { recommend: '1' },
-          e => {
-            getCurrentPages()["0"].setData({
-              fruitInfo: e.data
-            })
-          }
-        )
-        break;
+        // // 今日特惠
+        // case '1':
+        //   app.getInfoWhere('fruit-board', {myClass:'1'},
+        //     e => {
+        //       getCurrentPages()["0"].setData({
+        //         fruitInfo: e.data
+        //       })
+        //     }
+        //   )
+        //   break;
+        // // 销量排行
+        // case '2':
+        //   app.getInfoByOrder('fruit-board','time','desc',
+        //     e => {
+        //       getCurrentPages()["0"].setData({
+        //         fruitInfo: e.data
+        //       })
+        //     }
+        //   )
+        //   break;
+        // // 店主推荐
+        // case '3':
+        //   app.getInfoWhere('fruit-board', { recommend: '1' },
+        //     e => {
+        //       getCurrentPages()["0"].setData({
+        //         fruitInfo: e.data
+        //       })
+        //     }
+        //   )
+        //   break;
     }
   },
 
 
   // ---------点击跳转至详情页面-------------
-  tapToDetail: function(e) {
+  tapToDetail: function (e) {
     wx.navigateTo({
       url: '../detail/detail?_id=' + e.currentTarget.dataset.fid,
     })
@@ -132,7 +136,7 @@ Page({
 
   onShow: function () {
     var that = this
-    // 水果信息
+    // 商品信息
     // app.getInfoFromSet('fruit-board', {},
     //   e => {
     //     // console.log(e.data)
@@ -154,7 +158,9 @@ Page({
     )
     // console.log(app.globalData.offLine)
     // 是否下线
-    app.getInfoWhere('setting', { "option": "offLine" },
+    app.getInfoWhere('setting', {
+        "option": "offLine"
+      },
       e => {
         that.setData({
           offLine: e.data["0"].offLine
@@ -181,7 +187,7 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: '水果园byVoyz',
+      title: '商品园byVoyz',
       imageUrl: '../../images/icon/fruit.jpg',
       path: '/pages/homepage/homepage'
     }

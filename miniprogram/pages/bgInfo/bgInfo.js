@@ -16,10 +16,10 @@ Page({
     manageList:[], //管理页面信息列表
 
     // 上传的信息
-    fruitID:null, //水果编号
-    name:null,    //水果名称
+    fruitID:null, //商品编号
+    name:null,    //商品名称
     price:null,   //价格
-    unit:null,    //单位
+    unit: '元',    //单位
     detail:"",    //描述
     myClass:0,    //今日特惠
     recommend:0,  //店主推荐
@@ -37,14 +37,14 @@ Page({
   },
 
   //------------------------!!! 获取信息 !!!------------------------
-  // 获取水果编号
+  // 获取商品编号
   getFruitID: function (e) {
     this.setData({
       fruitID: parseInt(e.detail.value)
     })
   },
 
-  // 获取水果名称
+  // 获取商品名称
   getName: function (e) {
     this.setData({
       name: e.detail.value
@@ -94,7 +94,7 @@ Page({
     })
   },
 
-  //水果详细信息
+  //商品详细信息
   getInfoText: function (e) {
     var that = this
     that.setData({
@@ -141,7 +141,7 @@ Page({
   },
 
   // ----------------------!!!  提交操作  !!!---------------------
-  // 添加水果信息表单
+  // 添加商品信息表单
   addFruitInfo: function(e){
     const that = this
     if (that.data.name && that.data.price){
@@ -176,8 +176,8 @@ Page({
     
   },
 
-  // ----------------------!!!  修改水果参数  !!!----------------------
-  // 上架水果
+  // ----------------------!!!  修改商品参数  !!!----------------------
+  // 上架商品
   upToLine:function(e){
     var that = this
     // console.log(e.currentTarget.id)
@@ -191,7 +191,7 @@ Page({
     })
   },
   
-  // 下架水果
+  // 下架商品
   downFromLine: function (e) {
     var that = this
     // console.log(e.currentTarget.id)
@@ -205,7 +205,7 @@ Page({
     })
   },
 
-  // 绑定删除水果名称参数
+  // 绑定删除商品名称参数
   getDelFruitId: function(e) {
     var that = this
     app.getInfoWhere('fruit-board',{
@@ -217,7 +217,7 @@ Page({
     })
   },
 
-  // 删除水果
+  // 删除商品
   deleteFruit: function() {
     // app.deleteInfoFromSet('fruit-board',"葡萄")
     var that = this

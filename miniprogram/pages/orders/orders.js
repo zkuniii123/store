@@ -23,13 +23,11 @@ Page({
     wx.cloud.callFunction({
       name: 'getIP'
     }).then(e=>{
-      if(e){
-        let spbill_create_ip = e.result.body.split("query\"\:\"")[1].split("\"\,\"")[0]
+      let spbill_create_ip = e.result.body
         console.log("IP地址为：" + spbill_create_ip)
         self.setData({
           spbill_create_ip: spbill_create_ip
         })
-      }
     }).catch(err=>{
       if (err) {
         wx.showModal({
@@ -83,8 +81,8 @@ Page({
     wx.cloud.callFunction({
       name: 'add',
       complete: res => {
-        console.log('云函数获取到的openid: ', res.result.openId)
-        var openid = res.result.openId;
+        console.log('云函数获取到的openid: ', res.result.openid)
+        var openid = res.result.openid;
         that.setData({
           openid: openid,
         })
