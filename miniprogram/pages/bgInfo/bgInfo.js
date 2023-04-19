@@ -97,10 +97,10 @@ Page({
   //商品详细信息
   getInfoText: function (e) {
     var that = this
+    console.log(e.detail)
     that.setData({
-
+      detail: e.detail.value
     })
-    this.data.detail = e.detail.value;
   },
 
   // 今日特惠
@@ -144,6 +144,7 @@ Page({
   // 添加商品信息表单
   addFruitInfo: function(e){
     const that = this
+    console.log(that.data)
     if (that.data.name && that.data.price){
       new Promise((resolve, reject) => {
         const { fruitID, name, price, unit, detail, myClass, recommend, tmpUrlArr, onShow } = that.data
@@ -158,6 +159,16 @@ Page({
           wx.showToast({
             title: '添加成功',
           })
+          that.setData({
+            fruitID:null,
+            files:[],
+            tmpUrlArr:[],
+            name:null,
+            price:null,
+            unit:'元',
+            detail:'',
+          })
+          console.log(that.data)
         })
         app.getInfoByOrder('fruit-board', 'time', 'desc',
           e => {
@@ -231,6 +242,7 @@ Page({
   // 程序下线打烊
   offLine: function () {
     var that = this
+    console.log()
     app.getInfoWhere('setting', {
       option: "offLine"
     }, res => {

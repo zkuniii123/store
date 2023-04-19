@@ -120,9 +120,6 @@ Page({
   // ------------生命周期函数------------
   onLoad: function (options) {
     var that = this
-    wx.showLoading({
-      title: '生活要领鲜',
-    })
     that.setData({
       isShow: false
     })
@@ -149,6 +146,7 @@ Page({
     // )
     app.getInfoByOrder('fruit-board', 'time', 'desc',
       e => {
+        console.log(e)
         getCurrentPages()["0"].setData({
           fruitInfo: e.data,
           isShow: true
@@ -178,7 +176,13 @@ Page({
   },
 
   onPullDownRefresh: function () {
-
+    app.getInfoByOrder('fruit-board', 'time', 'desc',
+      e => {
+        getCurrentPages()["0"].setData({
+          fruitInfo: e.data
+        })
+      }
+    )
   },
 
   onReachBottom: function () {
@@ -187,8 +191,8 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: '商品园byVoyz',
-      imageUrl: '../../images/icon/fruit.jpg',
+      title: '健佑商城',
+      imageUrl: '../../images/icon/Snipaste_2023-04-15_17-35-39.png',
       path: '/pages/homepage/homepage'
     }
   }

@@ -3,7 +3,7 @@
 <view class='tapCard'>
   <view class="addCard {{cardNum === 1 ? 'tapOn':'tapOff'}} " bindtap='tapTo1'>添加商品</view>
   <view class="delCard {{cardNum === 2 ? 'tapOn':'tapOff'}} " bindtap='tapTo2'>上架修改</view>
-  <view class="deliver {{cardNum === 3 ? 'tapOn':'tapOff'}} " bindtap='tapTo3'>送货管理</view>
+  <!-- <view class="deliver {{cardNum === 3 ? 'tapOn':'tapOff'}} " bindtap='tapTo3'>送货管理</view> -->
 </view>
 
 <!-- 添加商品 -->
@@ -45,9 +45,9 @@
   </view>
 
   <!-- 打烊 -->
-  <view class="weui-btn-area">
+  <!-- <view class="weui-btn-area">
     <button class="weui-btn" type="primary" bindtap="offLine">打烊/营业</button>
-  </view>
+  </view> -->
 
   <!-- 删除商品 -->
   <view class='myInput'>
@@ -71,7 +71,7 @@
       <view class="weui-label">商品编号</view>
     </view>
     <view class="weui-cell__bd weui-cell__ft">
-      <input class="weui-input" type="digit" bindinput='getFruitID'/>
+      <input class="weui-input" value="{{fruitID}}" type="digit" bindblur='getFruitID'/>
     </view>
   </view>
   <!-- 商品名称 -->
@@ -80,7 +80,7 @@
       <view class="weui-label">商品名称</view>
     </view>
     <view class="weui-cell__bd weui-cell__ft">
-      <input class="weui-input" bindinput='getName'/>
+      <input class="weui-input" value="{{name}}" bindblur='getName'/>
     </view>
   </view>
   <!-- 价格 -->
@@ -89,7 +89,7 @@
       <view class="weui-label">价格</view>
     </view>
     <view class="weui-cell__bd weui-cell__ft">
-      <input class="weui-input" type="digit" bindinput='getPrice'/>
+      <input class="weui-input" value="{{price}}" type="digit" bindblur='getPrice'/>
     </view>
   </view>
   <!-- 单位 -->
@@ -141,7 +141,7 @@
   <view class="weui-cell">
     <view class="weui-uploader__hd">
       <view class="section">
-        <textarea bindblur="getInfoText" auto-height placeholder="介绍商品的详细信息" style="min-height: 250rpx;"  />
+        <textarea value="{{detail}}" bindblur="getInfoText" auto-height placeholder="介绍商品的详细信息" style="min-height: 250rpx;"  />
       </view>
     </view>
   </view>

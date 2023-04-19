@@ -1,7 +1,7 @@
 <!-- 维护 -->
-<view style='height:100%;width:750rpx;background:white;line-height:1200rpx;text-align:center' wx:if="{{offLine}}">打烊啦~~~~~</view>
+<!-- <view style='height:100%;width:750rpx;background:white;line-height:1200rpx;text-align:center' wx:if="{{offLine}}">打烊啦~~~~~</view> -->
 
-<view class='myHomePage' wx:if="{{isShow && !offLine}}">
+<view class='myHomePage'>
 <!--搜索框-->
 <mySearch></mySearch>
 
@@ -55,7 +55,7 @@
 <!-- 底部 -->
 <view class='homeBottom'>
   <view class='bottomLine'></view>
-  <view class='bottomWord'>coding by Voyz_Shen</view>
+  <view class='bottomWord'>到底了</view>
   <view class='bottomLine'></view>
 </view>
 

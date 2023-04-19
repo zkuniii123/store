@@ -3,7 +3,7 @@
         <form bindsubmit="formSubmit">
             <input value="{{address.name}}" name="name" placeholder="姓名"/>
             <input type="digit" name="phone" value="{{address.phone}}" placeholder="电话号码"/>
-            <input type="digit" name="addressDesc" value="{{address.addressDesc}}" placeholder="详细地址"/>
+            <input name="addressDesc" value="{{address.addressDesc}}" placeholder="详细地址"/>
             <view>备注：</view>
             <view class='message'>
               <textarea name="message" value="{{address.message}}"></textarea>
